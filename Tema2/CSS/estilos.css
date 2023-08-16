@@ -1,0 +1,21 @@
+p {
+    background-color: azure;
+    color: antiquewhite;
+    border: 3px solid pink;
+    margin: 50px;
+    padding: 70px;
+    text-align: justify;
+}
+
+.resaltado{
+    font-weight: bolder;
+    color: blueviolet;
+    display: inline-block;
+}
+
+#diferente{
+    background-color: chocolate;
+    color: cadetblue;
+    width: 200px;
+
+}
