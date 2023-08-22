@@ -1,0 +1,40 @@
+.container {
+    width: 100%;
+    height: 100%;
+    border: 5px solid palevioletred;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container2 {
+    font-size: 1em;
+    color: brown;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 3px solid brown;
+    order: 2;
+
+}
+
+.container3 {
+    font-size: 1em;
+    justify-content: space-around;
+    background-color: maroon;
+    color: beige;
+
+}
+
+
+.resaltado1 {
+    font-weight: bolder;
+    color: skyblue;
+    display: inline-block;
+}
+
+.resaltado2 {
+    font-weight: bolder;
+    color: darkred;
+    display: inline-block;
+}
