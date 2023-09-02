@@ -1,0 +1,93 @@
+.rojo{
+    color: #FF0000;
+}
+.amarillo{
+    color: #FFC000;
+}
+
+.verde{
+    color: #00B050;
+}
+
+.celeste{
+    color: #00B0F0;
+}
+
+.azul{
+    color: #0070C0;
+}
+
+
+.bg-rojo{
+    background-color: #FF0000;
+}
+
+.bg-amarillo{
+    background-color: #FFC000;
+}
+
+.bg-verde{
+    background-color: #00B050;
+}
+
+.bg-celeste{
+    background-color: #00B0F0;
+}
+
+.contenedor{
+
+    width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid red;
+    margin: auto;
+
+}
+.encabezado{
+    width: 900px;
+    display: flex;
+    flex-wrap: nowrap;
+    border: 1px solid black;
+}
+
+#logo{ /*id*/
+    width: 100px;
+    padding: 10px;
+    
+}
+
+#titulo{
+    
+    width: 700px;
+}
+
+#logo2{
+    width: 100px;
+    padding: 10px;
+}
+.centrado{
+    text-align: center;
+}
+
+.contenido{
+    width: 900px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#texto{
+    width: 770px;
+}
+
+#menu{
+    width: 130px;
+    border: 1px solid black;
+}
+#menu ul{
+    list-style-type: none;
+}
+
+.pie{
+    width: 900px;
+    background-color: orangered;
+}

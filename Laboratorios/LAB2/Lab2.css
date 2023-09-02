@@ -1,0 +1,63 @@
+.blanco{
+    color: beige;
+}
+
+.centrado
+{
+    text-align: center;
+}
+
+.encabezado{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    background-color: lightcoral;
+}
+.menu{
+    width: 100%;
+    background-color: lightblue;
+    justify-content: space-around;
+}
+
+.contenedor{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+    
+}
+.barra_lateral{
+    width: 30%;
+    background-color: lightsteelblue;
+    height: 100%;
+    justify-content: flex-start;
+}
+
+.contenido{
+    width: 70%;
+    background-color: lightgoldenrodyellow;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+.cuadro{
+    width: 668px;
+    height: 200px;
+    background-color:gray;
+}
+
+.pie{
+    width: 100%;
+    height: 70px;
+    background-color: gray;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
