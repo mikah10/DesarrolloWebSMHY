@@ -9,7 +9,7 @@
         $this->pila[$this->tope]=$elemento;
         $this->tope++;
     }
-    public function pop() {
+    public function eliminar() {
         $this->tope--;
         $elemento=$this->pila[$this->tope];
         unset($this->pila[$this->tope]);
