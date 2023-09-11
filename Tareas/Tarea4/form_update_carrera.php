@@ -15,14 +15,15 @@
     $resultado = $con->query($sql);
     $row = $resultado->fetch_assoc();
     ?>
-    
+
     <form action="update.php" method="post">
         <div>
             <label for="nombre">Nombre de la Carrera</label>
             <input type="text" name="nombre" value="<?php echo $row['nombre']?>">
         </div>
+        
         <input type="hidden" name="id" value="<?php echo $id?>">
-        <input type="submit" value="Editar">
+        <input type="submit" value="Editar Carrera">
     </form>
 
 </body>
