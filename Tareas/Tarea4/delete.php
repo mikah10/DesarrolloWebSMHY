@@ -6,7 +6,7 @@ $sql="DELETE FROM alumno WHERE id=$id";
 
  //echo $sql;
  if ($con->query($sql) === TRUE) {
-    echo "Se elimino el registro correctamente";
+    echo "Se elimino la carrera correctamente";
 } else {
     echo "Error: " . $sql . "<br>" . $con->error;
 }

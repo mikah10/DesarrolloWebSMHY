@@ -11,7 +11,7 @@
 <body>
     <?php include('conexion.php'); ?>
 
-    <form action="create.php" method="post">
+    <form action="create_carrera.php" method="post">
         <div>
             <label for="nombre">Nombre de la Carrera:</label>
             <input type="text" name="nombre">

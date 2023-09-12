@@ -1,7 +1,7 @@
 <?php
 include ("conexion.php");
-$id = $_GET['id'];
-$nombre = $_GET['nombre'];
+$id = $_POST['id'];
+$nombre = $_POST['nombre'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = $_POST['nombre'];

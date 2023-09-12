@@ -1,42 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Carreras</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
+
 <body>
-<?php
-include ('conexion.php');
+    <?php include('conexion.php');
 
-$sql = "SELECT id, nombre FROM carrera";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-?>
+    $sql = "SELECT a.id,nombres,apellidos,CU,c.nombre as carrera FROM alumno a
+    LEFT JOIN carrera c on a.idcarrera=c.id ";
 
-<h2>Carreras</h2>
-<a href="form_create.php">Agregar nueva carrera</a>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Acciones</th>
-    </tr>
-    <?php
-    while($row = $result->fetch_assoc()) {
+    $resultado = $con->query($sql);
+    if ($resultado->num_rows > 0) {
     ?>
-    <tr>
-        <td><?php echo $row["id"]; ?></td>
-        <td><?php echo $row["nombre"]; ?></td>
-        <td><a href="form_update_carrera.php?id=<?php echo $row["id"]; ?>">Editar</a> | <a href="delete.php?id=<?php echo $row["id"]; ?>">Eliminar</a></td>
-    </tr>
+        <table>
+            <tr>
+                <th>Nombres</th>
+                <th>Operaciones</th>
+            </tr>
+            <?php while ($row = $resultado->fetch_assoc()) {
+            ?>
+                <tr>
+                    <td><?php echo $row['nombres']; ?></td>
+                    <td><?php echo $row['carrera']; ?></td>
+                    <td><a href="form_update_carrera.php?id=<?php echo $row['id'];?>">Editar</a>
+                        <a href="delete_carrera.php?id=<?php echo $row['id'];?>">Eliminar</a>
+                </td>
+
+                </tr>
+
+            <?php } ?>
+        </table>
+
     <?php
-    }
+    } else {
+    ?> <div>No existen registros que mostrar</div>
+    <?php }
     ?>
-</table>
-<?php
-} else {
-?> <div>No existen carreras que mostrar</div>
-<?php
-}
+
+    <a href="formu_carrera.php">Agregar carrera</a>
+
+
+
 
 </body>
+
 </html>
