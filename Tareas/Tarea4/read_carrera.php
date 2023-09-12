@@ -10,8 +10,7 @@
 <body>
     <?php include('conexion.php');
 
-    $sql = "SELECT a.id,nombres,apellidos,CU,c.nombre as carrera FROM alumno a
-    LEFT JOIN carrera c on a.idcarrera=c.id ";
+    $sql = "SELECT id, nombre FROM carrera";
 
     $resultado = $con->query($sql);
     if ($resultado->num_rows > 0) {
@@ -24,8 +23,7 @@
             <?php while ($row = $resultado->fetch_assoc()) {
             ?>
                 <tr>
-                    <td><?php echo $row['nombres']; ?></td>
-                    <td><?php echo $row['carrera']; ?></td>
+                    <td><?php echo $row['nombre']; ?></td>
                     <td><a href="form_update_carrera.php?id=<?php echo $row['id'];?>">Editar</a>
                         <a href="delete_carrera.php?id=<?php echo $row['id'];?>">Eliminar</a>
                 </td>

@@ -1,6 +1,7 @@
 <?php
 include ("conexion.php");
 $id = $_POST['id'];
+$nombre = $_POST['nombre'];
 
 $sql="UPDATE carrera set nombre='$nombre' WHERE  id=$id ";
  //echo $sql;

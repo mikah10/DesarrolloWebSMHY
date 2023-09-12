@@ -16,7 +16,7 @@
     $row = $resultado->fetch_assoc();
     ?>
 
-    <form action="update.php" method="post">
+    <form action="update_carrera.php" method="post">
         <div>
             <label for="nombre">Nombre de la Carrera</label>
             <input type="text" name="nombre" value="<?php echo $row['nombre']?>">
