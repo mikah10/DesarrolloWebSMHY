@@ -1,0 +1,31 @@
+body{
+    text-align: center;
+}
+.casilla {
+    width: 100px;
+    height: 40px;
+    display: inline-block;
+    border: 1px solid black;
+    margin-top: -3.8px
+}
+.azul {
+    background-color: blue;
+}
+.rojo {
+    background-color: red;
+    color: white;
+}
+.amarillo {
+    background-color: yellow;
+}
+.verde {
+    background-color: green;
+    color: white;
+}
+.morado {
+    background-color: purple;
+    color: white;
+}
+.rosa {
+    background-color: pink;
+}
