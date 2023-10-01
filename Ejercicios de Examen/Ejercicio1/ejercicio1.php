@@ -1,3 +1,12 @@
+<?php
+    if(isset($_COOKIE["nvisitas"])) {
+        $nvisitas = $_COOKIE["nvisitas"];
+        $nvisitas++;
+    } else {
+        $nvisitas = 1;
+    }
+    setcookie("nvisitas", $nvisitas, time()+3600);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,8 +34,10 @@
         <div class="content">
             <div class="buttons">
                 <div class="buttons_section">
-                    <div>I</div>
-                    <a class="button" href="pregunta1">Pregunta 1</a>
+                    <br>
+                    <br>
+                    <br>
+                    <a class="button" href="E">Pregunta 1</a>
                     <a class="button" href="pregunta">Pregunta 2</a>
                     <a class="button" href="pregunta1">Pregunta 3</a>
                     <a class="button" href="pregunta1">Pregunta 4</a>
@@ -35,9 +46,28 @@
                 </div>
 
             </div>
-            <div >Nombre de Estudiante: Hinojosa Yucra Samantha Mikaela</div>
+            
+            
+            <div class="main">
+                Nombre de Estudiante: Hinojosa Yucra Samantha Mikaela
+                <br>
+                Ejercicios elegidos:
+                <br>
+                 <a href="Ejercicio3/ejercicio3.php">   - Ejercicio 3 Area de un triangulo </a> <br>
+                 <a href="Ejercicio4/formulario.html">  - Ejercicio 4 Dias de la semana</a> <br>
+                 <a href="Ejercicio5.1/form.html">  - Ejercicio 5 Par o Impar </a>  <br>
+                 <a href="Ejercicio6.1/formulario.html">   - Ejercicio 6 Datos </a><br>
+            </div>
         </div>
-
+        <div class="footer1">
+            Usted ingreso a esta pagina 
+            <span style="padding: 0px 5px; border: 1px solid black; background-color: pink; height: 100%; margin: 0 10px;">
+                <?php echo $nvisitas ?>
+            </span> veces
+        </div>
+        <div class="footer2">
+            Año 2023
+        </div>
 
     </div>
     

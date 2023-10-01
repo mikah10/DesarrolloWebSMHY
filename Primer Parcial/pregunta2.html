@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selecciona un mes</title>
+    <style>
+        /* Estilo para los controles del formulario */
+        select, input[type="text"] {
+            background-color: #F79646;
+        }
+    </style>
+</head>
+<body>
+    <form action="calendario.php" method="post">
+        <label for="mes">Selecciona un mes:</label>
+        <select name="mes">
+            <option value="1">enero</option>
+            <option value="2">febrero</option>
+            <option value="3">marzo</option>
+            <option value="4">abril</option>
+            <option value="5">mayo</option>
+            <option value="6">junio</option>
+            <option value="7">julio</option>
+            <option value="8">agosto</option>
+            <option value="9">septiembre</option>
+            <option value="10">octubre</option>
+            <option value="11">novienbre</option>
+            <option value="12">diciembre</option>
+        </select>
+
+        <label for="anio">Año:</label>
+        <input type="text" name="anio" id="anio">
+
+        <input type="submit" value="Mostrar calendario">
+    </form>
+</body>
+</html>
