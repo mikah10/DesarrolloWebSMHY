@@ -9,11 +9,27 @@
 </head>
 
 <body>
+<div>
+        <form action="read.php" method="GET">
+            <div>
+                <label for="buscar">buscar</label>
+                <input type="text" name="buscar">
+                <input type="submit" value="Buscar">
+            </div>
+        </form>
+    </div>
+
     <h1>TIPO HABITACION</h1>
     <?php include('conexion.php');
+    $orden=isset($_GET['orden'])?$_GET['orden']:'id';
 
 $sql = "SELECT id,nro,id_tipo_habitacion,bano_privado,espacio,precio FROM habitacion";
 
+if (isset($_GET['buscar'])) {
+    $buscar = $_GET['buscar'];
+    $sql .= " WHERE id_tipo_habitacion like '%$buscar%' ";
+}
+$sql .= "order by $orden";
     $resultado = $con->query($sql);
     if ($resultado->num_rows > 0) {
     ?>
@@ -58,6 +74,7 @@ $sql = "SELECT id,nro,id_tipo_habitacion,bano_privado,espacio,precio FROM habita
     ?> <div>No existen registros que mostrar</div>
     <?php }
     ?>
+    
 <div class="op">
 
 <div class="operaciones_item1">
