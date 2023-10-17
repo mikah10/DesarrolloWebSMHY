@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    Introduzca 3 números:
+    <form action="" method="POST">
+        <div>
+            <label for="a">Número 1</label>
+            <input type="number" name="a" id="a">
+        </div>
+        <div>
+            <label for="b">Número 2</label>
+            <input type="number" name="b" id="b">
+        </div>
+        <div>
+            <label for="c">Número 3</label>
+            <input type="number" name="c" id="c">
+        </div>
+        <input type="button" value="calcular" onclick="calcularmayor()">
+    </form>
+
+    <script>
+        function calcularmayor() {
+            var a = parseFloat(document.getElementById("a").value);
+            var b = parseFloat(document.getElementById("b").value);
+            var c = parseFloat(document.getElementById("c").value);
+
+            document.getElementById("a").style.backgroundColor = "white";
+            document.getElementById("b").style.backgroundColor = "white";
+            document.getElementById("c").style.backgroundColor = "white";
+
+            if (a > b && a > c) {
+                document.getElementById("a").style.backgroundColor = "red";
+            } else if (b > a && b > c) {
+                document.getElementById("b").style.backgroundColor = "red";
+            } else {
+                document.getElementById("c").style.backgroundColor = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>

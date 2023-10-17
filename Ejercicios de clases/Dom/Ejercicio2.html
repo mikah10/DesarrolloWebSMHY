@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="numero">
+    <button onclick="llenar()">llenar</button>
+
+    <div id="elemento">
+
+
+    </div>
+
+<script>
+    function llenar() {
+        n = parseFloat(document.getElementById("numero").value);
+        html="";
+
+        for (let i = 0; i < n; i++) {
+            html+= `<input type="number" name="numeros"><br>`;
+        }
+        html+= `<button onclick="calcularMayor()">calcular Mayor</button>`;
+        document.getElementById("elemento").innerHTML=html;
+    
+    }
+
+    function calcularMayor() {
+    const numeros = document.getElementsByName("numeros");
+    let maxVal = Number.NEGATIVE_INFINITY;
+    let maxElement = null;
+
+    for (let i = 0; i < numeros.length; i++) {
+        const currentValue = Number(numeros[i].value);
+
+        if (currentValue > maxVal) {
+            if (maxElement) {
+                maxElement.style.backgroundColor = "";  // Restablecer el color de fondo
+                const prevLabel = document.getElementById("label_" + maxElement.name);
+                if (prevLabel) prevLabel.remove();
+            }
+
+            maxVal = currentValue;
+            maxElement = numeros[i];
+        }
+    }
+
+    if (maxElement) {
+        maxElement.style.backgroundColor = "yellow";
+        
+        const label = document.createElement("span");
+        label.id = "label_" + maxElement.name;
+        label.innerHTML = " mayor número";
+        maxElement.after(label);
+    }
+}
+</script>
+</body>
+</html>
+
