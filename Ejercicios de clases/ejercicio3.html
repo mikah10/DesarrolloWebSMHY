@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Introduzca su contraseña:
+
+    <br>
+    <br>
+
+    <label for="password">password</label>
+    <input type="password" name="password" id="password">
+    <input id="boton" onclick="mostrar()" type="button" value="mostrar">
+
+    <br/>
+    <br/>
+
+    <table border="1">
+        <tr>
+            <td onclick="escribir(1)">1</td>
+            <td onclick="escribir(2)">2</td>
+            <td onclick="escribir(3)">3</td>
+        </tr>
+        <tr>
+            <td onclick="escribir(4)">4</td>
+            <td onclick="escribir(5)">5</td>
+            <td onclick="escribir(6)">6</td>
+        </tr>
+        <tr>
+            <td onclick="escribir(7)">7</td>
+            <td onclick="escribir(8)">8</td>
+            <td onclick="escribir(9)">9</td>
+        </tr>
+        <tr>
+            <td onclick="eliminarUltimo()">*</td>
+            <td onclick="escribir(0)">0</td>
+            <td onclick="eliminar()">limpiar</td>
+        </tr>
+    </table>
+
+    <script>
+        function eliminar() {
+            document.getElementById("password").value = "";
+        }
+
+        function eliminarUltimo() {
+            const passwordField = document.getElementById("password");
+            passwordField.value = passwordField.value.slice(0, -1);
+        }
+
+        function mostrar() {
+            const passwordField = document.getElementById("password");
+            const toggleButton = document.getElementById("boton");
+
+            if (passwordField.type == "password") {
+                passwordField.type = "text";
+                toggleButton.value = "ocultar";
+            } else {
+                passwordField.type = "password";
+                toggleButton.value = "mostrar";
+            }
+        }
+
+        function escribir(numero) {
+            document.getElementById("password").value += numero;
+        }
+
+        // += concatena
+    </script>
+
+</body>
+</html>
+
