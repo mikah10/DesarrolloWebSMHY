@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>yo no soy refresco en bolsa pero si te puedo aceptar el popote</p>
+    <p>yo no soy refresco en bolsa pero si te puedo aceptar el bombilla</p>
+    <p>yo no soy refresco en bolsa pero si te puedo aceptar el sorbete</p>
+    <p>yo no soy refresco en bolsa pero si te puedo aceptar el pajilla</p>
+    <p>yo no soy refresco en bolsa pero si te puedo aceptar el popote</p>
+    <button onclick="cambiar()">cambiar</button>
+    <button onclick="cambiarparrafos()">intercalar parrafos</button>
+
+    <script>
+
+        function cambiarparrafos(){
+            for(i=0; i<parrafos.length; i++){
+                if(i%2==0){
+                    parrafos[i].style.backgroundColor = "red";
+                }else{
+                    parrafos[i].style.backgroundColor = 'yellow';
+                }
+            }
+        }
+
+        function cambiar()
+        {
+            var parrafo2=parrafos[1].innerHTML;
+            let letra=parrafo2.charAt(0).toUpperCase();
+            let resto=parrafo2.substring(1);
+            let nuevoparrafo=`<span style="color:red">${letra}</span>${resto}`;
+            parrafos[1].innerHTML=nuevoparrafo;
+        }
+
+        var parrafos=document.getElementsByTagName('p'); 
+        document.write('El numero de parrafos es: '+parrafos.length);
+        parrafos[4].innerHTML='Tom Simons';
+        console.log(parrafos[1].style);   
+    </script>
+</body>
+</html>

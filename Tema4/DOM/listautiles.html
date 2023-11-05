@@ -11,22 +11,19 @@
     <button id="anadir">anadir</button>
     <button id="borrar">borrar</button>
     <ul id="lista"></ul>
-
     <script>
-document.getElementById('boton').addEventListener('click',function(){
-    var elemento=new D
-    lista = document.getElementById('lista')
-    alert('prueba')
-//crear objetos dinamicamente utilizando DOM
-    const elemento = document.createElement("li");
-    elemento.innerHTML= document.getElementById('util').value;
-    document.getElementById()
-})
+      document.getElementById('anadir').addEventListener('click',function(){
 
-document.getElementById
-
-
-
+        const elemento = document.createElement('li');
+        elemento.innerHTML = document.getElementById('util').value;
+        document.getElementById('lista').appendChild(elemento);
+    })
+        document.getElementById('borrar').addEventListener('click',function(){
+    
+            const elemento = document.createElement('li');
+            elemento.innerHTML = document.getElementById('util').value;
+            document.getElementById('lista').removeChild(elemento);
+    })
     </script>
 </body>
 </html>
