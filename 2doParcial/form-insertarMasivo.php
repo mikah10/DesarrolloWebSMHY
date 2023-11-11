@@ -1,5 +1,5 @@
 <?php
-    include('connection.php');
+    include('conexion.php');
     $titulo = $_POST['titulo'];
     $autor = $_POST['autor'];
     $anio = $_POST['anio'];

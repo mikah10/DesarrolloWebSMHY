@@ -1,5 +1,5 @@
 function cargarContenido(abrir) {
-    var contenedor = document.getElementById('contenido');
+    var contenedor = document.getElementById('principal');
     var ajax = new XMLHttpRequest();
     ajax.open("get", abrir, true);
     ajax.onreadystatechange = function () {
@@ -34,70 +34,27 @@ function mostrarTabla() {
     }
     var resultado = '';
     for (var i = 1; i <= limite; i++) {
-        if (operacion === 'multiplicar') {
+        if (operacion === 'factorial') {
             resultado += numero + ' x ' + i + ' = ' + (numero * i) + '<br>';
         } else if (operacion === 'sumar') {
             resultado += numero + ' + ' + i + ' = ' + (numero + i) + '<br>';
         } else if (operacion === 'resta') {
             resultado += numero + ' - ' + i + ' = ' + (numero - i) + '<br>';
-        } else if (operacion === 'division') {
-            resultado += numero + ' / ' + i + ' = ' + (numero / i) + '<br>';
-        }
+        } 
     }
     document.getElementById('Resultado').innerHTML = resultado;
 }
-
-function actualizarImagen() {
-    var selectLibros = document.getElementById('selectLibros');
-    var divImagen = document.getElementById('divImagen');
-    var imagenLibro = document.getElementById('imagenLibro');
-
-    var libroSeleccionado = selectLibros.options[selectLibros.selectedIndex].value;
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'datos.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            
-            var respuesta = JSON.parse(xhr.responseText);
-            divImagen.innerHTML = '<img src="' + respuesta.imagen + '" alt="' + libroSeleccionado + '" id="imagenLibro">';
-        }
-    };
-    xhr.send('libro=' + libroSeleccionado);
-
-    return false;
+function menu(){
+    menu.innerHTML = "Samantha Mikaela Hinojosa CU:35-5346"
+    var contenedor = document.getElementById('menu');
+    var ajax = new XMLHttpRequest();
 }
 
-function actualizarUsuario(btn) {
-    var idUsuario = btn.getAttribute('data-id');
-    var nivelActual = btn.getAttribute('data-nivel');
 
-    var nuevoNivel = (nivelActual == 1) ? 0 : 1;
-
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'listar.php', true);
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-       
-            btn.setAttribute('data-nivel', xhr.responseText);
-            btn.innerText = (xhr.responseText == 1) ? 'Cambiar a Usuario' : 'Cambiar a Administrador';
-
-            btn.classList.remove('verde', 'rojo');
-            btn.classList.add(xhr.responseText == 0 ? 'verde' : 'rojo');
-
-            var fila = btn.closest('tr');
-            var nivelCell = fila.querySelector('.nivel');
-            nivelCell.innerText = (xhr.responseText == 1) ? 'Administrador' : 'Usuario';
-        }
-    };
-    xhr.send('id=' + idUsuario + '&nivel=' + nuevoNivel);
-
-    return false;
-}
 function cargarTabla() {
-    var contenedor = document.getElementById('contenido');
+    titulo.innerHTML = "Pregunta 2 Calcuar Tabla"
+    historial.innerHTML = "Preciono Pregunta 2"
+    var contenedor = document.getElementById('principal');
     var ajax = new XMLHttpRequest();
     
     ajax.open('GET', 'tabla.html', true);
@@ -125,19 +82,71 @@ function generarTabla() {
     }
     var resultado = '';
     for (var i = 1; i <= limite; i++) {
-        if (operacion === 'multiplicar') {
+        if (operacion === 'factorial') {
             resultado += numero + ' x ' + i + ' = ' + (numero * i) + '<br>';
         } else if (operacion === 'sumar') {
             resultado += numero + ' + ' + i + ' = ' + (numero + i) + '<br>';
         } else if (operacion === 'resta') {
             resultado += numero + ' - ' + i + ' = ' + (numero - i) + '<br>';
-        } else if (operacion === 'division') {
-            resultado += numero + ' / ' + i + ' = ' + (numero / i) + '<br>';
-        }
+        } 
     }
     document.getElementById('Resultado').innerHTML = resultado;
 }
-function actualizarMensajeTresEnRaya(turno) {
-    const mensajeElement = document.getElementById('mensaje');
-    mensajeElement.innerText = `Turno: ${turno}`;
+
+
+function pregunta4(){
+    titulo.innerHTML = "Pregunta 4 Insertar Libro"
+    historial.innerHTML = "Preciono Pregunta 4"
+    var ajax = new XMLHttpRequest()
+    ajax.open("GET", `forminsertar.html`, false);
+    ajax.onreadystatechange = function(){
+        if(ajax.readyState == 4 && ajax.status == 200){
+            principal.innerHTML = ajax.responseText;
+        }
+    }
+    ajax.send();
 }
+function insertar(){
+    let form = document.getElementById('form')
+    let data = new FormData(form)
+    var ajax = new XMLHttpRequest()
+    ajax.open("POST", `form-insertaMasivo.php`, false);
+    ajax.onreadystatechange = function(){
+        if(ajax.readyState == 4 && ajax.status == 200){
+            principal.innerHTML = ajax.responseText;
+        }
+    }
+    ajax.send(data);
+}
+
+
+function pregunta3(){
+    titulo.innerHTML = "Pregunta 3 Calcular Suma"
+    historial.innerHTML = "Preciono Pregunta 3"
+    var ajax = new XMLHttpRequest()
+    ajax.open("GET", `formN.html`, false);
+    ajax.onreadystatechange = function(){
+        if(ajax.readyState == 4 && ajax.status == 200){
+            principal.innerHTML = ajax.responseText;
+        }
+    }
+    ajax.send();
+}
+
+function getCuadros(){
+    let suma = document.getElementById('suma').value
+    fetch(`introducir.php?suma=${suma}`)
+    .then(response => response.text())
+    .then(data => principal.innerHTML = data);
+}
+
+function calcular(){
+    let cuadros = document.querySelectorAll('.cuadro')
+    var suma = 0
+    cuadros.forEach(cuadro => {
+        suma += parseInt(cuadro.value)
+    });
+    historial.innerHTML = suma
+}
+
+

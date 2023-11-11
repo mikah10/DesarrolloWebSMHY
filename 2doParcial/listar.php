@@ -22,15 +22,15 @@ $resultado = $con->query($sql);
     <?php
     if ($resultado->num_rows > 0) {
     ?>
-        <table>
+        <table border="2">
             <tr>
-            <th><a href="#" onclick="cargarContenido('listar2.php?orden=titulo')">Título</a></th>
+            <th><a href="#" onclick="cargarContenido('listar.php?orden=titulo')">Título</a></th>
                 <th>Imagen</th>
             </tr>
             <?php while ($row = $resultado->fetch_assoc()) { ?>
                 <tr>
                     <td><?php echo $row['titulo']; ?></td>
-                    <td><img src="<?php echo $row['imagen']; ?>" alt="Libro"></td>
+                    <td><img src=" <?php echo $row['imagen']; ?>" alt="Libro"></td>
                 </tr>
             <?php } ?>
         </table>
