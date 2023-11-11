@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pregunta 4</title>
+</head>
+<body>
+    <h2>Inicio de sesion</h2>
+    <div>
+        <button id="loginButton">Login</button>
+    </div>
+    <div id="resultDiv"></div>
+
+    <script>
+        document.getElementById("loginButton").addEventListener("click", function() {
+            // Fetch login.html
+            fetch("login.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("resultDiv").innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>

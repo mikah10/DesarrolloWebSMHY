@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Agrandar y Reducir Imagen</title>
+    <style>
+        #container {
+            text-align: center;
+        }
+
+        #img-container {
+            display: inline-block;
+        }
+
+        button {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: rgb(235, 158, 205);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: rgb(235, 158, 205);
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <br>
+        <h2>Ingrese la cantidad de pixeles:</h2>
+        <button onclick="agrandarImagen()">Agrandar</button>
+        <button onclick="reducirImagen()">Reducir</button>
+        <input type="number" id="cantidad">
+        <div id="img-container">
+            <img id="my-image" src="candy.png">
+        </div>
+    </div>
+
+</body>
+
+<script>
+    function agrandarImagen() {
+  var cantidad = parseInt(document.getElementById("cantidad").value);
+  var imagen = document.getElementById("my-image");
+  var width = imagen.clientWidth;
+  imagen.style.width = (width + cantidad) + "px";
+}
+
+function reducirImagen() {
+  var cantidad = parseInt(document.getElementById("cantidad").value);
+  var imagen = document.getElementById("my-image");
+  var width = imagen.clientWidth;
+  imagen.style.width = (width - cantidad) + "px";
+}
+
+</script>
+
+</html>

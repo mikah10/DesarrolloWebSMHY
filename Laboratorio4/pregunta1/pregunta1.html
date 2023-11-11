@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pregunta 1</title>
+</head>
+<body>
+    <button id="mostrar">Mostrar</button>
+    <div id="lista"></div>
+
+    <script>
+        document.getElementById('mostrar').addEventListener('click', function() {
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', 'lista.php', true);
+            
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+
+    
+                    var data = JSON.parse(xhr.responseText);
+                    var table  = '<table>';
+                    table += '<tr><th>Nro</th><th>Apellidos Nombre</th><th>Edad</th><th>Materia</th><th>Nota</th></tr>';
+                    for (var i = 0; i < data.length; i++) {
+                        table += '<tr>';
+                        table += '<td>' + data[i].Nro + '</td>';
+                        table += '<td>' + data[i]['Apellidos Nombre'] + '</td>';
+                        table += '<td>' + data[i].Edad + '</td>';
+                        table += '<td>' + data[i].Materia + '</td>';
+                        table += '<td>' + data[i].Nota + '</td>';
+                        table += '</tr>';
+                    }
+                    table += '</table>';
+                    document.getElementById('lista').innerHTML = table;
+                }
+            };
+            xhr.send();
+        });
+    </script>
+</body>
+</html>
