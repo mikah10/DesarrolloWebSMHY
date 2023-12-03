@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pregunta 2</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="operaciones">
+    <select id="operacion">
+      <option value="suma">Suma</option>
+      <option value="resta">Resta</option>
+      <option value="multiplicacion">Multiplicación</option>
+      <option value="division">División</option>
+    </select>
+    <input type="number" id="valorPredeterminado" value="5">
+    <button onclick="generarEjercicios()">Generar Ejercicios</button>
+    <div id="contenido1"></div>
+    <button onclick="calificar()">Calificar</button>
+  </div>
+
+  <script>
+    function generarEjercicios() {
+      var operacion = document.getElementById("operacion").value;
+      var valorPredeterminado = parseInt(document.getElementById("valorPredeterminado").value);
+      var contenido = document.getElementById("contenido");
+
+      contenido1.innerHTML = "";
+
+      for (var i = 1; i <= 5; i++) {
+        var ejercicio = document.createElement("div");
+        ejercicio.innerHTML = `${valorPredeterminado} ${operacion} ${i} = <input type="text" id="resultado${i}">`;
+        contenido.appendChild(ejercicio);
+      }
+    }
+
+    function calificar() {
+      var operacion = document.getElementById("operacion").value;
+      var valorPredeterminado = parseInt(document.getElementById("valorPredeterminado").value);
+
+      for (var i = 1; i <= 5; i++) {
+        var resultadoUsuario = parseInt(document.getElementById(`resultado${i}`).value);
+        var resultadoCorrecto;
+
+        switch (operacion) {
+          case "suma":
+            resultadoCorrecto = valorPredeterminado + i;
+            break;
+          case "resta":
+            resultadoCorrecto = valorPredeterminado - i;
+            break;
+          case "multiplicacion":
+            resultadoCorrecto = valorPredeterminado * i;
+            break;
+          case "division":
+            resultadoCorrecto = valorPredeterminado / i;
+            break;
+          default:
+            break;
+        }
+
+        var inputResultado = document.getElementById(`resultado${i}`);
+        
+        if (resultadoUsuario === resultadoCorrecto) {
+          inputResultado.style.backgroundColor = "green";
+        } else {
+          inputResultado.style.backgroundColor = "red";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
+
